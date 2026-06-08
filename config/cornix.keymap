@@ -24,6 +24,7 @@
 #define NAVI   5
 #define NUM    6
 #define DEBUG  7
+#define WS     8
 
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
@@ -192,7 +193,7 @@
 &kp ESC           &kp Q         &kp W  &kp E           &kp R  &kp T                              &kp Y      &kp U  &kp I          &kp O            &kp P          &kp BACKSPACE
 &kp TAB           &kp A         &kp S  &kp D           &kp F  &kp G                              &kp H      &kp J  &kp K          &kp L            &kp SEMICOLON  &kp BSLH
 &kp CAPS          &kp Z         &kp X  &kp C           &kp V  &kp B      &kp C_MUTE  &kp C_MUTE  &kp N      &kp M  &kp COMMA      &kp DOT          &kp FSLH       &kp APOS
-&kp LEFT_CONTROL  &kp LEFT_ALT  &mo 3  &lt 2 LEFT_GUI  &mo 1  &kp SPACE                          &kp SPACE  &mo 2  &kp BACKSPACE  &kp RIGHT_SHIFT  &mo 3          &kp ENTER
+&kp LEFT_CONTROL  &kp LEFT_ALT  &mo WS  &lt 2 LEFT_GUI  &mo 1  &kp SPACE                          &kp SPACE  &mo 2  &kp BACKSPACE  &kp RIGHT_SHIFT  &mo 3          &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -246,6 +247,16 @@
 &none  &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP                    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT     &none           &none
 &none  &none  &none           &none           &none            &msc SCRL_DOWN  &trans  &trans  &trans    &trans    &none     &none         &none           &none
 &none  &none  &none           &mo 4           &trans           &trans                          &none     &none     &kp N5    &none         &none           &none
+            >;
+        };
+
+        WS_layer {
+            display-name = "WS";
+            bindings = <
+&none  &none         &none         &none         &none         &none                   &none  &none         &none         &none         &none         &none
+&none  &kp LG(N1)    &kp LG(N2)    &kp LG(N3)    &kp LG(N4)    &kp LG(N5)              &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &none
+&none  &none         &none         &none         &none         &none   &trans  &trans  &none  &none         &none         &none         &none         &none
+&none  &none         &trans        &none         &none         &none                   &none  &none         &none         &none         &none         &none
             >;
         };
 
