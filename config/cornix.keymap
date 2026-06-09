@@ -38,14 +38,14 @@
 
         combo_super_ws {
             bindings = <&super_ws>;
-            key-positions = <LH2 LB5>;
+            key-positions = <LH2 LM5>;
             layers = <BASE>;
             timeout-ms = <50>;
         };
 
         combo_alt_ws {
             bindings = <&alt_ws>;
-            key-positions = <LP0 LB5>;
+            key-positions = <LP0 LM5>;
             layers = <BASE>;
             timeout-ms = <50>;
         };
