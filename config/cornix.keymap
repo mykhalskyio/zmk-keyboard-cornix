@@ -25,6 +25,12 @@
             #binding-cells = <0>;
             bindings = <&sk LGUI &sl WS>;
         };
+
+        alt_ws: alt_ws {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&sk LALT &sl WS>;
+        };
     };
 
     combos {
@@ -33,6 +39,13 @@
         combo_super_ws {
             bindings = <&super_ws>;
             key-positions = <LH2 LB5>;
+            layers = <BASE>;
+            timeout-ms = <50>;
+        };
+
+        combo_alt_ws {
+            bindings = <&alt_ws>;
+            key-positions = <LP0 LB5>;
             layers = <BASE>;
             timeout-ms = <50>;
         };
@@ -47,7 +60,7 @@
 &kp ESC    &kp Q  &kp W  &kp E  &kp R  &kp T                              &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp TAB    &kp A  &kp S  &kp D  &kp F  &kp G                              &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp APOS
 &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B      &kp C_MUTE  &kp C_MUTE  &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-&kp LCTRL  &kp LALT  &mo NAVI  &kp LGUI  &mo NUM  &kp SPACE               &kp SPACE  &mo SYS  &kp RALT  &kp RSHFT  &kp DEL  &kp ENTER
+&kp LCTRL  &mo NAVI  &kp LALT  &kp LGUI  &mo NUM  &kp SPACE               &kp SPACE  &mo SYS  &kp RALT  &kp RSHFT  &kp DEL  &kp ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
@@ -77,10 +90,10 @@
         navi_layer {
             display-name = "Navi";
             bindings = <
-&none  &none  &none  &none  &none  &none                   &none     &none     &none     &none      &none      &none
-&none  &none  &none  &none  &none  &none                   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &none      &none
-&none  &none  &none  &none  &none  &none  &trans  &trans   &mkp MB1  &mkp MB2  &mkp MB3  &none      &none      &none
-&none  &none  &trans &none  &none  &none                   &none     &none     &none     &none      &none      &none
+&none  &none     &none     &none   &none      &none                   &none     &none     &none     &none      &none  &none
+&none  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none                   &none     &none     &none     &none      &none  &none
+&none  &kp HOME  &kp PG_DN &kp PG_UP &kp END  &none  &trans  &trans   &none     &none     &none     &none      &none  &none
+&none  &none     &trans    &none   &none      &none                   &none     &none     &none     &none      &none  &none
             >;
         };
 
