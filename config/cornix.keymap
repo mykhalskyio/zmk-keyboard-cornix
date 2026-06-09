@@ -27,12 +27,14 @@
         };
     };
 
-    behaviors {
-        td_gui: tap_dance_gui {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LGUI>, <&super_ws>;
+    combos {
+        compatible = "zmk,combos";
+
+        combo_super_ws {
+            bindings = <&super_ws>;
+            key-positions = <LH2 LB5>;
+            layers = <BASE>;
+            timeout-ms = <50>;
         };
     };
 
@@ -45,7 +47,7 @@
 &kp ESC    &kp Q  &kp W  &kp E  &kp R  &kp T                              &kp Y      &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp TAB    &kp A  &kp S  &kp D  &kp F  &kp G                              &kp H      &kp J  &kp K      &kp L    &kp SEMI  &kp APOS
 &kp LSHFT  &kp Z  &kp X  &kp C  &kp V  &kp B      &kp C_MUTE  &kp C_MUTE  &kp N      &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-&kp LCTRL  &kp LALT  &mo NAVI  &td_gui  &mo NUM  &kp SPACE               &kp SPACE  &mo SYS  &kp RALT  &kp RSHFT  &kp DEL  &kp ENTER
+&kp LCTRL  &kp LALT  &mo NAVI  &kp LGUI  &mo NUM  &kp SPACE               &kp SPACE  &mo SYS  &kp RALT  &kp RSHFT  &kp DEL  &kp ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
