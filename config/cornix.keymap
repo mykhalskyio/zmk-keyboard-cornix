@@ -29,19 +29,19 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        combo_super_ws {
-            bindings = <&super_ws>;
-            key-positions = <LH2 LM5>;
-            timeout-ms = <200>;
+    behaviors {
+        td_gui: td_gui {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LGUI>, <&super_ws>;
         };
 
-        combo_alt_ws {
-            bindings = <&alt_ws>;
-            key-positions = <LP0 LM5>;
-            timeout-ms = <200>;
+        td_alt: td_alt {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LALT>, <&alt_ws>;
         };
     };
 
@@ -54,7 +54,7 @@
 &kp ESC    &kp Q  &kp W     &kp E     &kp R  &kp T                              &kp Y      &kp U  &kp I            &kp O          &kp P     &kp BSPC
 &kp TAB    &kp A  &kp S     &kp D     &kp F  &kp G                              &kp H      &kp J  &kp K            &kp L          &kp SEMI  &kp APOS
 &kp LSHFT  &kp Z  &kp X     &kp C     &kp V  &kp B      &kp C_MUTE  &kp C_MUTE  &kp N      &kp M  &kp COMMA        &kp DOT        &kp FSLH  &kp BSLH
-&kp LCTRL  &mo 2  &kp LALT  &kp LGUI  &mo 1  &kp SPACE                          &kp SPACE  &mo 2  &kp RIGHT_SHIFT  &kp RIGHT_ALT  &kp DEL   &kp ENTER
+&kp LCTRL  &mo 2  &td_alt   &td_gui   &mo 1  &kp SPACE                          &kp SPACE  &mo 2  &kp RIGHT_SHIFT  &kp RIGHT_ALT  &kp DEL   &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
