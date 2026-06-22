@@ -19,13 +19,21 @@
         super_ws: super_ws {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&sk LGUI &sl 3>;
+            bindings
+                = <&macro_press &kp LGUI &mo 3>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LGUI &mo 3>
+                ;
         };
 
         alt_ws: alt_ws {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&sk LALT &sl 3>;
+            bindings
+                = <&macro_press &kp LALT &mo 3>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LALT &mo 3>
+                ;
         };
     };
 
@@ -33,14 +41,14 @@
         td_gui: td_gui {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <600>;
             bindings = <&kp LGUI>, <&super_ws>;
         };
 
         td_num: td_num {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <2000>;
             bindings = <&mo 1>, <&alt_ws>;
         };
     };
