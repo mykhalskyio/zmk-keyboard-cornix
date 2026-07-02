@@ -43,4 +43,8 @@ CONFIG_EC11_TRIGGER_GLOBAL_THREAD=y
 
 CONFIG_BT_CTLR_TX_PWR_PLUS_8=y
 
+# Force 1 Mbps BLE PHY (disable 2M): ~2x range and much more robust at distance,
+# with no extra power draw. This is the left (peripheral) half.
+CONFIG_BT_CTLR_PHY_2M=n
+
 # vim: set ft=kconfig:
