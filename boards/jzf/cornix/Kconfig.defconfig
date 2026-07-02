@@ -41,12 +41,6 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default n
 
-# Add keyboard debouncing
-config ZMK_KSCAN_DEBOUNCE_PRESS_MS
-    default 3
-config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
-    default 3
-
 endif # BOARD_CORNIX_RIGHT
 
 # Common options for both sides
@@ -64,6 +58,21 @@ config ZMK_SPLIT
 
 config ZMK_BLE
 	default y
+
+# Deep sleep: power down after idle to cut battery drain; a keypress wakes it
+# (kscan0 is a wakeup-source and soft_off_wakers is wired in cornix.dtsi)
+config ZMK_SLEEP
+	default y
+
+# Idle time before deep sleep, in ms (1800000 = 30 min).
+config ZMK_IDLE_SLEEP_TIMEOUT
+	default 1800000
+
+# Debounce for all sides.
+config ZMK_KSCAN_DEBOUNCE_PRESS_MS
+	default 3
+config ZMK_KSCAN_DEBOUNCE_RELEASE_MS
+	default 3
 
 ## disable rgb by default
 config ZMK_RGB_UNDERGLOW
