@@ -23,6 +23,11 @@ CONFIG_FLASH_MAP=y
 CONFIG_CLOCK_CONTROL_NRF=y
 CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
 
+# Run the nRF52840 on its DC/DC regulator (the E73 module has the inductor).
+# Roughly halves the supply current during TX bursts -> less voltage sag /
+# brownout on battery -> more reliable BLE link, and better battery life too.
+CONFIG_BOARD_ENABLE_DCDC=y
+
 CONFIG_ZMK_SPLIT=y
 
 CONFIG_ZMK_BLE=y
